@@ -1,0 +1,12 @@
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\PingPongDataModel.exe.config
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\PingPongDataModel.exe
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\PingPongDataModel.pdb
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\EntityFramework.dll
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\EntityFramework.xml
+D:\PingPong\PingPongApp\PingPongDataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\PingPong\PingPongApp\PingPongDataModel\obj\Debug\PingPongDataModel.csprojResolveAssemblyReference.cache
+D:\PingPong\PingPongApp\PingPongDataModel\obj\Debug\PingPongDataModel.csproj.CoreCompileInputs.cache
+D:\PingPong\PingPongApp\PingPongDataModel\obj\Debug\PingPongDataModel.csproj.CopyComplete
+D:\PingPong\PingPongApp\PingPongDataModel\obj\Debug\PingPongDataModel.exe
+D:\PingPong\PingPongApp\PingPongDataModel\obj\Debug\PingPongDataModel.pdb

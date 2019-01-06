@@ -1,0 +1,96 @@
+ 
+<div class="row">
+    <nav>
+        <div class="nav-wrapper">
+          <a href="javsscript:void(0)" class="brand-logo center" *ngIf="!showform">
+            <i class="material-icons">format_list_bulleted</i>PingPong Players List
+          </a>
+          <a href="javsscript:void(0)" class="brand-logo center" *ngIf="showform">
+              <i class="material-icons">add</i>Add Player
+            </a>
+        </div>
+      </nav>
+      <div class="progress" *ngIf="loading">
+          <div class="indeterminate"></div>
+      </div>
+      <div class="row">&nbsp;</div>
+      <div class="row" *ngIf="!showform">
+          <div class="col s9"></div>
+          <div class="col s3"><a href="javascript:void(0)" (click)="addPlayer()" class="right waves-effect waves-light btn">Add Player</a></div>
+        </div>
+      
+    <table class="responsive-table" *ngIf="showgrid">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Email Address</th>
+              <th>Age</th>
+              <th>Skill Level</th>
+              <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of players">
+            <td>{{p.FirstName}}</td>
+            <td>{{p.EmailAddress}}</td>
+            <td>{{p.Age}}</td>
+            <td>{{p.SkillLevelName}}</td>
+            <td><a href="javascript:void(0)" title="Edit Player" (click)="editPlayer(p)"><i class="material-icons">edit</i></a>
+              &nbsp;&nbsp;
+              <a class="modal-trigger" href="#modal1" title="Delete Player" (click)="deleteConfirm(p)"><i class="material-icons">delete</i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+
+      <div class="row" *ngIf="showform">
+          <form class="col s12" #playerForm="ngForm" (ngSubmit)="OnSubmit(playerForm)">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="first_name" type="text" #FirstName="ngModel" name="FirstName"  [(ngModel)]="player.FirstName" class="validate" [required]="true">
+                <label for="first_name" [ngClass]="{'active' : player.PlayerId != 0}">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate" name="LastName" #LastName="ngModel" [(ngModel)]="player.LastName" [required]="true">
+                <label for="last_name" [ngClass]="{'active' : player.PlayerId != 0}">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="email" type="email" class="validate" name="Email" #Email="ngModel" [(ngModel)]="player.EmailAddress" [required]="true" [pattern]="emailPattern">
+                    <label for="email" data-error="Invalid email!" [ngClass]="{'active' : player.PlayerId != 0}">Email</label>
+                  </div>
+                <div class="input-field col s6">
+                  <input id="age" type="number" class="validate" name="Age" #Age="ngModel" [(ngModel)]="player.Age">
+                  <label for="age" [ngClass]="{'active' : player.PlayerId != 0}">Age</label>
+                </div>
+                
+              </div>
+            <div class="row">
+                <div class="select-field col s12">
+                    <mat-form-field >
+                       <mat-select  [(value)]="player.SkillLevelId" placeholder="Skill Level">
+                         <mat-option *ngFor="let skill of skillLevels" [value]="skill.SkillLevelID" >{{skill.SkillLevelName}}</mat-option>
+                       </mat-select>
+                     </mat-form-field>
+                 </div>
+             
+            </div>
+            <button [disabled]="!playerForm.valid" class="waves-effect waves-light btn" type="submit"> {{player.PlayerId != 0? 'Update':'Save'}}</button>
+      &nbsp;&nbsp;
+            <a class="waves-effect waves-light btn" (click)="cancel()">Back To List</a>
+          </form>
+        </div>
+              
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Confirm Delete</h4>
+      <p>Are you sure you want to delete this player?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="javascript:void(0)" (click)="deletePlayer()" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+      <a href="javascript:void(0)" (click)="playerIdToBeDeleted = 0" class="modal-close waves-effect waves-green btn-flat">No</a>
+    </div>
+  </div>
